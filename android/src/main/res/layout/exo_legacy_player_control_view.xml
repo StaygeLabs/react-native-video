@@ -71,6 +71,14 @@
             android:textColor="@color/silver_gray"/>
 
         <ImageButton
+            android:id="@+id/exo_textTrack"
+            style="@style/ExoMediaButton.Subtitle"
+            android:layout_width="@dimen/full_screen_size"
+            android:layout_height="@dimen/full_screen_size"
+            android:layout_margin="@dimen/full_screen_margin"
+            android:scaleType="fitCenter" />
+
+        <ImageButton
             android:id="@+id/exo_fullscreen"
             style="@style/ExoMediaButton.FullScreen"
             android:layout_width="@dimen/full_screen_size"

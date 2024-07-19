@@ -478,6 +478,13 @@ public class ReactExoplayerView extends FrameLayout implements
         updateFullScreenButtonVisibility();
         refreshProgressBarVisibility();
 
+
+        //Handling subtitleButton click event
+        final ImageButton textTrackButton = playerControlView.findViewById(R.id.exo_textTrack);
+        textTrackButton.setOnClickListener(v -> {
+            eventEmitter.onRequestTextTrackSelectorOpen.invoke();
+        });
+
         // Invoking onPlaybackStateChanged and onPlayWhenReadyChanged events for Player
         eventListener = new Player.Listener() {
             @Override
