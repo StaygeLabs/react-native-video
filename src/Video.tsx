@@ -108,6 +108,7 @@ const Video = forwardRef<VideoRef, ReactVideoProps>(
       onTextTrackDataChanged,
       onVideoTracks,
       onAspectRatio,
+      onRequestOpenTextTrackSelector,
       ...rest
     },
     ref,
@@ -495,6 +496,10 @@ const Video = forwardRef<VideoRef, ReactVideoProps>(
       [onAspectRatio],
     );
 
+    const _onRequestTextTrackSelectorOpen = useCallback(() => {
+      onRequestOpenTextTrackSelector?.();
+    }, [onRequestOpenTextTrackSelector]);
+
     const _onControlsVisibilityChange = useCallback(
       (e: NativeSyntheticEvent<OnControlsVisibilityChange>) => {
         onControlsVisibilityChange?.(e.nativeEvent);
@@ -677,6 +682,7 @@ const Video = forwardRef<VideoRef, ReactVideoProps>(
           onControlsVisibilityChange={
             onControlsVisibilityChange ? _onControlsVisibilityChange : undefined
           }
+          onRequestTextTrackSelectorOpen={_onRequestTextTrackSelectorOpen}
           viewType={_viewType}
         />
         {hasPoster && showPoster ? (
